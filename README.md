@@ -8,7 +8,7 @@ Spring Boot service that receives Telegram webhooks, stores messages, and calcul
    cp .env.example .env
    echo "TELEGRAM_BOT_TOKEN=<your_bot_token>" >> .env
    ```
-   Optionally adjust `TELEGRAM_WEBHOOK_PUBLIC_URL`, `TELEGRAM_WEBHOOK_PATH`, or database credentials in `.env`.
+   Optionally adjust `TELEGRAM_WEBHOOK_PUBLIC_URL`, `TELEGRAM_WEBHOOK_PATH`, incident keywords (`MONITORING_KEYWORDS`), or database credentials in `.env`.
 
 2. Build and start PostgreSQL plus the app:
    ```bash
