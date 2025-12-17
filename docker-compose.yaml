@@ -7,8 +7,13 @@ services:
       POSTGRES_PASSWORD: postgres
   app:
     build: .
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/chat_monitor
-      TELEGRAM_BOT_TOKEN: PASTE_TOKEN
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:?Define TELEGRAM_BOT_TOKEN in your .env file}
+      TELEGRAM_WEBHOOK_PUBLIC_URL: ${TELEGRAM_WEBHOOK_PUBLIC_URL:-}
+      TELEGRAM_WEBHOOK_PATH: ${TELEGRAM_WEBHOOK_PATH:-/telegram/webhook}
+      TELEGRAM_BOT_USERNAME: ${TELEGRAM_BOT_USERNAME:-OchakovoMonitorBot}
